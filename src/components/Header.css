@@ -1,0 +1,97 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap');*/
+
+nav{
+    width: 100%;
+    height: 90px;
+    height: clamp(4rem, 10vw, 5.5rem);
+    color: white;
+
+
+    font-family: "Google Sans Code", monospace;
+    font-weight: 300;
+    font-style: normal;
+
+    padding: 0px 0px;
+    gap: 10px 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9;
+    pointer-events: none; 
+
+}
+
+nav * {
+  pointer-events: auto; 
+}
+
+.logo-Header {
+  max-width: 275px; /* or whatever you need */
+}
+
+.logo-Header .logo {
+  width: 100%;
+  height: auto;
+}
+
+@media(max-width: 600px){
+    nav{
+        gap: 0 0;
+    }
+}
+
+@media(max-width: 480px){
+
+    .navLinks{
+        flex: 1 1 auto;
+        display: flex;
+        padding: 0 0;
+    }
+
+    
+    .logoItem{
+        flex: 1 1 auto;
+        display: flex;
+    }
+
+}
+
+
+.headerLinks{
+    display: inline-block;
+    list-style: none;
+    margin: 5px 20px;
+    gap: 10px;  
+    animation: fadeIntro 1s ease forwards;
+
+}
+
+.container{
+    padding-right: 1%;  
+}
+
+
+
+@media(max-width:1450px){
+    .container{
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+
+@keyframes fadeIntro{
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+
+}
+
