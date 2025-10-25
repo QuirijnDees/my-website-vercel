@@ -1,0 +1,237 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,100..900;1,100..900&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,100..900;1,100..900&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Mozilla+Text:wght@200..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Mozilla+Text:wght@200..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Noto+Kufi+Arabic:wght@100..900&family=Oswald:wght@200..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Quicksand:wght@300..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Share+Tech&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+*/
+
+.boxBody{
+    animation: boxFade 1s ease forwards;
+    column-count: 2;
+
+    column-gap: 1%;
+    margin-left: 10%;
+    margin-right: 20%;
+    margin-top: 5%;
+
+}
+
+@media (max-width: 900px){
+    .boxBody{
+        column-count: 1;
+
+    }
+}
+
+@media (max-width: 1450px) {
+  .boxBody{
+    margin-top: clamp(4rem, 10vw, 6rem);
+  }
+}
+
+
+.box{
+    break-inside: avoid;
+    margin-bottom: 1%;
+    position: relative;
+    justify-content: center;
+}   
+
+.box:hover{
+        cursor:pointer;
+}
+
+.image{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: auto;
+    border-radius: 8px;
+    display: block;
+    -webkit-user-drag: none;
+}
+
+.imageBlock-wrapper{
+  position: relative;
+  display: inline-block;
+}
+
+.image-overlay{
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+
+
+.titleAsLogo{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+
+
+    object-fit: contain;
+    width: 100%;
+    transform-origin: center center;
+    transform: scale(0.9);
+    display: block;
+    -webkit-user-drag: none;
+}
+
+.titleAsText{
+
+
+    line-height: 2;
+    margin: 0;
+    padding: 0;
+
+    
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    position: absolute;
+    font-size: clamp(0.8rem, 2.5vw + 0.5rem, 1.5rem);
+    
+    top: 50%;   
+    left: 50%;  
+    transform: translate(-50%, -50%);
+
+
+    text-shadow: 2px 2px 4px black;
+
+
+    
+}
+
+
+.titleAsText, .titleAsLogo{
+          transition: opacity 0.2s ease-in 0s;
+          transition: transform 0.2s ease-out 0s;
+}
+
+.box:hover .titleAsText {
+    opacity: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    transform-origin: center;
+
+}
+
+ .box:hover .titleAsLogo{
+     opacity: 70%;
+    transform:  scale(0.8);
+ }
+
+.divDescriptionText{
+
+    color: white;
+    display: flex;
+    position: fixed;
+    
+    bottom: max(40%, 90px);
+    max-height: calc(60% - 90px);
+
+    left: 80%;
+    width: 20%;
+    justify-content: center;
+
+}
+
+.descriptionText{
+    overflow-wrap: break-word;
+    word-break: break-word;   
+    max-width: 100%;
+}
+
+@media(max-width: 700px){
+    .descriptionText{
+        font-size: 0.9rem;
+    }
+
+    .commenterLine{
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+
+
+
+.commenterBox{
+    
+    display: flex;
+    position: fixed;
+    bottom: 0%;
+    left: 80%;
+    width: 20%;
+    justify-content: center;
+
+}
+
+.commenter{
+    bottom: -10%;
+    width: 70%;
+    transition: transform 0.1s ease-out 0s;
+    animation: scanPopup 1s ease 0s;
+    
+}
+
+.lineDiv{
+ 
+    display: flex;
+    position: absolute;
+
+    top: 55%;
+    left: 80%;
+    width: 20%;
+    justify-content: center;
+    
+    flex: 1 1 auto;
+}
+
+.commenterLine{
+    position: fixed;
+    width: 2px;
+    background-color: white;
+   
+}
+
+.commenterBox:hover .commenter, .commenter:hover{
+    transform: translate(0, 65%);   
+}
+
+@media(max-height:590px){
+    .commenter{
+        max-width: 55%;
+    }
+
+    .divDescriptionText{
+        font-size: 0.9rem;
+    }
+
+}
+
+
+@keyframes boxFade{
+from{
+        opacity: 0;
+        transform: translateY(-10px);
+}to{
+        opacity: 1;
+        transform: translateY(0);
+}
+
+}
+
+@keyframes scanPopup{
+from{
+    transform: translateY(100%);
+
+}to{
+    transform: translateY(0);
+}
+
+}
