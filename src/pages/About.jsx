@@ -11,12 +11,13 @@ const email = "quirijnnn  [@]  gmail  .  com";
 const texts = [biography, ctma, email];
 
 export default function About() {
+
   return (
     <div className="about-body">
       <div className="imageBlock-wrapper-about">
         <img
           className="about-portraitGif"
-          src={`${import.meta.env.BASE_URL}/images/About/Q_Scan_Gif.webp`}
+          src={`${import.meta.env.BASE_URL}images/About/Q_Scan_Gif.webp`}
           alt="portrait"
           onContextMenu={(e) => e.preventDefault()}
         />
