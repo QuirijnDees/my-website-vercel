@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Lightbox.css"; 
+import "./lightbox.css"; 
 
 export default function Lightbox({ imageList = [], currentIndex = 0, onClose }) {
   const [isVisible, setIsVisible] = useState(false);
