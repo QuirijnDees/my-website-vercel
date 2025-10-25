@@ -6,7 +6,7 @@ import './App.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-    <BrowserRouter basename="/my-website">
+    <BrowserRouter>
       <App />
     </BrowserRouter>
 
