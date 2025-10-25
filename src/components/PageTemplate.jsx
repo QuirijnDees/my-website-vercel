@@ -4,7 +4,7 @@ import "./PageTemplate.css";
 import Lightbox from "./lightBox";
 import DynElement from "./dynElement";
 
-const basePath = "../images/";
+const basePath = `${import.meta.env.BASE_URL}images/`;
 
 
 export default function PageTemplate({ workTitle, subImList, gifIndices, titleImageSize, orderList, slideShowLengths, videoList, headerList, textList, links, linkWords, boldWords}) {
@@ -52,7 +52,7 @@ export default function PageTemplate({ workTitle, subImList, gifIndices, titleIm
               }
             }
           });
-        
+          
           secondImList.push({
               type: "image",
               id: u,
@@ -73,6 +73,7 @@ export default function PageTemplate({ workTitle, subImList, gifIndices, titleIm
       
       imageListN++;
     };
+
 
     if(orderList[i] === "video"){
 
@@ -271,7 +272,7 @@ if(titleImSize !== null){
       {lightBoxIndex !== null && (
         <Lightbox
         imageList={lightBoxImList.map(img => ({
-          src: basePath +  img.src,
+          src: img.src,
           alt: img.alt
         }))}
         

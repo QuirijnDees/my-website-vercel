@@ -29,7 +29,7 @@ export default function HoverSlideshow({className = ""}) {
     const arr = [];
     for (let i = 0; i < imageRange; i++) {
       const prefix = i < 10 ? "000" : i < 100 ? "00" : i < 1000 ? "0" : "";
-      arr.push(`/images/qd_headerLogo/title${tNum}/${prefix}${i}.webp`);
+      arr.push(`${import.meta.env.BASE_URL}/images/qd_headerLogo/title${tNum}/${prefix}${i}.webp`);
     }
     return arr;
   };

@@ -16,7 +16,7 @@ export default function About() {
       <div className="imageBlock-wrapper-about">
         <img
           className="about-portraitGif"
-          src="../images/About/Q_Scan_Gif.webp"
+          src={`${import.meta.env.BASE_URL}/images/About/Q_Scan_Gif.webp`}
           alt="portrait"
           onContextMenu={(e) => e.preventDefault()}
         />

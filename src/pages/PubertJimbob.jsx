@@ -18,8 +18,6 @@ const textParagraphs = ["Pubert Jimbob (2024) is quite an absurd, animated short
 
 
 const headers = [null, "synopsis", "awards", "selections", "distribution", "technique", "softwares", "credits", null];
-const basePath = "PubertJimbob/";
-const stillAm = 4;
 const orderList = ["text", "video", "text", "image", "text", "text", "text", "image",  "text", "text", "image", "text", "image", "text", "video"]; //////// TRUE IS TEXT, FALSE IS MEDIA
 
 export default function PubertJimbob() {

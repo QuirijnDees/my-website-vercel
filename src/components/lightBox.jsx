@@ -49,6 +49,7 @@ export default function Lightbox({ imageList = [], currentIndex = 0, onClose }) 
   }, [isVisible]);
 
   const currentImage = imageList[index]?.src;
+
   if (!imageList.length) return null;
 
   return (

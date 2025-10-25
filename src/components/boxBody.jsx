@@ -10,13 +10,13 @@ export default function BoxBody()   {
     const height = useWindowHeight();
     const width = useWindowWidth();
     let nextId = 0;
-    const imBasePath = "../images/";
+    const imBasePath = `${import.meta.env.BASE_URL}images/`;
     const works = ["Symbionts","TexturingTool", "RMX",  "PubertJimbob", "ImageSamplingTool"];
     const webPorGif = ["webp","gif","webp","webp","webp"];
     /////////////////////////// IF A WORK HAS NO IMAGE AS TITLE, FILL IT IN THE TITLES[] ARRAY AND IT WILL SHOW UP AS TEXT INSTEAD OF AN IMAGE
     const titles = [    null, "— texturingtool —", "— spectator —", null,"— imagesamplingtool —"];
     const fontColor = [ null,   "white", "#eae6e2",  null, "white"];
-    const fontTypes = [null, /*"Schibsted Grotesk*/ "Google Sans, sans-serif", "Inter, sans-serif", null, "Google Sans, sans-serif"];
+    const fontTypes = [null, /*"Schibsted Grotesk*/ "Go ogle Sans, sans-serif", "Inter, sans-serif", null, "Google Sans, sans-serif"];
     const roleDescription = ["my master's graduation film from HSLU.\nmy roles were:\n• director •\n• collaborative sound designer •\n• all 3D-animation •", "my custom-made texturing tool,\nfor authentically retexturing 3D-renders", "an AR-project by Giulia Martinelli.\nmy role was:\n• sound designer •", "my bachelor's graduation film from KASK.\nmy roles were:\n• director •\n• sound designer •\n• all 3D-animation •", "my custom-made image sampling tool,\nfor sampling digital imagery into abstract compositions and unique 3D texture maps"];
     const links = ["/symbionts", "/texturingtool", "https://vimeo.com/997306290", "/pubertjimbob", "/imagesamplingtool"];
     
@@ -226,7 +226,7 @@ const cancelTimer = () => {
         <div className = "commenterContainer">
 
             <div className="commenterBox" onMouseOver = {() => commenterBoxTimer(false)} onMouseLeave={() => cancelTimer()}>
-                <img className = "commenter" src= "../images/Static_Q3DScan.webp" onClick = {() => commenterBoxTimer(true)}></img>
+                <img className = "commenter" src= {`${import.meta.env.BASE_URL}images/Static_Q3DScan.webp`} onClick = {() => commenterBoxTimer(true)}></img>
             </div>
 
             <div className="lineDiv">

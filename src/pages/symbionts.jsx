@@ -13,11 +13,7 @@ const textParagraphs = ["Symbionts (2025) is an experimental, animated short fil
                         "Symbionts is featured in the 'Shorts II, 2025'-publication by Swiss Films.\nMore information on Symbionts can be found "
                     ];
 
-
-
 const headers = [null, "synopsis", "selection", "technique", "softwares", "distribution", "credits", ""];
-const basePath = "Symbionts/";
-const stillAm = 4;
 const orderList = ["text", "video", "text", "text", "image", "text", "text", "text", "image", "text","image", "text"]
 
 export default function Symbionts() {
