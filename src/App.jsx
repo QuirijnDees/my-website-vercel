@@ -5,11 +5,7 @@ import Home from './pages/Home';
 import About from './pages/About'; 
 import Symbionts from './pages/symbionts';
 import PubertJimbob from './pages/PubertJimbob';
-<<<<<<< HEAD
 import ImageSamplingTool from './pages/ImageSamplingTool';
-=======
-import ImageSamplingTool from './pages/imagesamplingtool';
->>>>>>> 7d5c98511cd21d01c3807262233beff48a81e912
 import TexturingTool from './pages/TexturingTool';
 import ScrollToTop from './components/scrollToTop'; 
 import { GlobalProvider } from "./GlobalContext";
