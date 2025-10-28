@@ -3,9 +3,10 @@ import { useState } from 'react';
 import "./PageTemplate.css";
 import Lightbox from "./lightBox";
 import DynElement from "./dynElement";
+import SlideshowWrapper from "./SlideshowWrapper";
+import Reveal from "./Reveal";
 
 const basePath = `${import.meta.env.BASE_URL}images/`;
-
 
 export default function PageTemplate({ workTitle, subImList, gifIndices, titleImageSize, orderList, slideShowLengths, videoList, headerList, textList, links, linkWords, boldWords}) {
 
@@ -172,86 +173,53 @@ if(titleImSize !== null){
       {combined.map((item, index) => {
         const keySeed = `page-${workTitle}-${item.type}-${item.idx}-${index}`;
 
+        return (
+       
+            item.type === "slideshow" ? (
+              <Reveal key={`page-${workTitle}-${item.type}-${item.idx}-${index}-reveal`}>
+                <SlideshowWrapper
+                  key={`${keySeed}-slideshow-${item.slideNumber}`}
+                  item={item}
+                  slideShowLengths={slideShowLengths}
+                  slideShowIndices={slideShowIndices}
+                  slideDirections={slideDirections}
+                  updateSlideshowIndices={updateSlideshowIndices}
+                  linkWords={linkWords}
+                  boldWords={boldWords}
+                  setLightBoxIndex={setLightBoxIndex}
+                  keySeed={keySeed}
+                />
+              </Reveal>
+            ) : (
+              <Reveal key={`page-${workTitle}-${item.type}-${item.idx}-${index}-reveal`}>
+                <DynElement
+                  item={item}
+                  linkWords={linkWords}
+                  boldWords={boldWords}
+                  setLightBoxIndex={setLightBoxIndex}
+                  keySeed={keySeed}
+                />
+              </Reveal>
+            )
+          
+        );
+
+        /*
         if (item.type === "slideshow") {
-          const ssI = slideShowIndices[item.slideNumber];
-          const slideKey = `${keySeed}-ss-${item.slideNumber}-${ssI}`;
-
-          return (
-            <div className="slideshowWrapper" key={slideKey}>
-              <div
-                className="slideshow-row"
-                style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
-              >
-                <button
-                  id="leftButton"
-                  className="slideShowButton"
-                  onClick={() =>
-                    updateSlideshowIndices(
-                      item.slideNumber,
-                      (ssI - slideShowLengths[item.slideNumber][1] + item.slides.length) %
-                        item.slides.length,
-                        "left"
-                    )
-                  }
-                >
-                  ◀
-                </button>
-
-                <div className="slideshowContainer" style={{ maxWidth: "60rem" }}>
-                  <div className=/*"slideContent"*/ {`slideContent slide-${slideDirections[item.slideNumber]}`}>
-                    <DynElement
-                      key= /*{`${slideKey}-main`}*/ {`${slideKey}-${ssI}-${slideDirections[item.slideNumber]}`}
-                      item={item.slides[ssI]}
-                      linkWords={linkWords}
-                      boldWords={boldWords}
-                      setLightBoxIndex={setLightBoxIndex}
-                      keySeed={`${slideKey}-main`}
-                      animationDirection={slideDirections[item.slideNumber]}
-                      /*isSlide={true}*/
-                    />
-
-                    <div
-                      className={
-                        slideShowLengths[item.slideNumber][2] ? "imagesColumn" : "imagesRow"
-                      }
-                    >
-                      {Array(slideShowLengths[item.slideNumber][1] - 1)
-                        .fill(0)
-                        .map((_, i) => {
-                          const nextIdx = (ssI + i + 1) % item.slides.length;
-                          return (
-                            <DynElement
-                              key={`${slideKey}-extra-${nextIdx}`}
-                              item={item.slides[nextIdx]}
-                              linkWords={linkWords}
-                              boldWords={boldWords}
-                              setLightBoxIndex={setLightBoxIndex}
-                              keySeed={`${slideKey}-extra-${nextIdx}`}
-                              animationDirection={slideDirections[item.slideNumber]}
-                              /*isSlide={true}*/
-                            />
-                          );
-                        })}
-                    </div>
-                  </div>
-                </div>
-
-                <button
-                  id="rightButton"
-                  className="slideShowButton"
-                  onClick={() =>
-                    updateSlideshowIndices(
-                      item.slideNumber,
-                      (ssI + slideShowLengths[item.slideNumber][1]) % item.slides.length,
-                      "right"
-                    )
-                  }
-                >
-                  ▶
-                </button>
-              </div>
-            </div>
-          );
+            return (
+              <SlideshowWrapper
+                key={`${keySeed}-slideshow-${item.slideNumber}`}
+                item={item}
+                slideShowLengths={slideShowLengths}
+                slideShowIndices={slideShowIndices}
+                slideDirections={slideDirections}
+                updateSlideshowIndices={updateSlideshowIndices}
+                linkWords={linkWords}
+                boldWords={boldWords}
+                setLightBoxIndex={setLightBoxIndex}
+                keySeed={keySeed}
+              />
+            );
         }
 
         // Non-slideshow items
@@ -263,11 +231,12 @@ if(titleImSize !== null){
             boldWords={boldWords}
             setLightBoxIndex={setLightBoxIndex}
             keySeed={keySeed}
-            /*isSlide={false}*/
-          />
-        );
-      })}
 
+          />
+        );*/
+      })
+      
+      }
 
       {lightBoxIndex !== null && (
         <Lightbox

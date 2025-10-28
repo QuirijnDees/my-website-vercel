@@ -1,4 +1,5 @@
 import './About.css';
+import Reveal from "../components/Reveal";
 
 const biography = `Quirijn Dees is a sound designer, music producer and animator.
 He initially developed an interest in sound through producing beat music. At the age of 18, Quirijn started his Sonology Bachelor at the Royal Conservatory in The Hague. Here his interest in audiovisual composition and animation grew. During this time Quirijn started experimenting with creative coding and digital cut-out animation.
@@ -14,34 +15,38 @@ export default function About() {
 
   return (
     <div className="about-body">
-      <div className="imageBlock-wrapper-about">
-        <img
-          className="about-portraitGif"
-          src={`${import.meta.env.BASE_URL}images/About/Q_Scan_Gif.webp`}
-          alt="portrait"
-          onContextMenu={(e) => e.preventDefault()}
-        />
-        <div className="image-overlay-about"></div>
-      </div>
+      <Reveal>
+        <div className="imageBlock-wrapper-about">
+          <img
+            className="about-portraitGif"
+            src={`${import.meta.env.BASE_URL}images/About/Q_Scan_Gif.webp`}
+            alt="portrait"
+            onContextMenu={(e) => e.preventDefault()}
+          />
+          <div className="image-overlay-about"></div>
+        </div>
+      </Reveal>
+      <Reveal>
+        <div className="about-text">
+          {texts.map((item, index) => (
+            <div key={index} className="about-text-section">
+              {index === 2 ? (
+            
+                <p className="about-email">{item}</p>
+              ) : (
+              
+                item.split("\n").map((line, i) => (
+                  <p key={i} className="about-paragraph">
+                    {line}
+                  </p>
+                ))
+              )}
+            </div>
+          ))}
+        </div>
+      </Reveal>
 
-      <div className="about-text">
-        {texts.map((item, index) => (
-          <div key={index} className="about-text-section">
-            {index === 2 ? (
-           
-              <p className="about-email">{item}</p>
-            ) : (
-             
-              item.split("\n").map((line, i) => (
-                <p key={i} className="about-paragraph">
-                  {line}
-                </p>
-              ))
-            )}
-          </div>
-        ))}
-      </div>
-
+      <Reveal>
       <div className="about-linkLogos">
         <a
           href="https://www.instagram.com/quirijndees/"
@@ -68,6 +73,7 @@ export default function About() {
           <ion-icon name="logo-youtube"></ion-icon>
         </a>
       </div>
-    </div>
+      </Reveal>
+    </div>  
   );
 }

@@ -4,6 +4,8 @@ import React from "react";
 import SmartLink from "./SmartLink";
 import useWindowWidth from "./useWindowWidth";
 import { useState, useEffect } from "react";
+import Reveal from "./Reveal";
+import LazyImage from "./LazyImage";
 
 const basePath = "../images/";
 
@@ -160,6 +162,7 @@ export default function DynElement({item, linkWords, boldWords, setLightBoxIndex
                       )}
                     </div>
                   </div>
+                
                 )
           
                 };
@@ -189,14 +192,26 @@ export default function DynElement({item, linkWords, boldWords, setLightBoxIndex
                                 below450 ? below450 : "1 1" + Math.min(divisionNumber/item.value.length, 100) + "rem"   
                               }}>
                                 <div className="imageBlock-wrapper"> 
-                                  <img 
+                                  {/*<img 
                                     key = {`${keySeed}-img-${it.id}-${ind}`}
                                     className= "image" 
                                     src= {it.src} 
                                     alt={it.alt+"_image"} 
                                     style={{aspectRatio: aspectRatio}}
                                     onContextMenu={(e) => e.preventDefault()}
-                                  ></img>
+                                  ></img>*/}
+                                
+                                    <LazyImage
+                                      key = {`${keySeed}-lazyImage-${it.id}-${ind}`}
+                                      src={it.src}
+                                      alt={it.alt+"_image"} 
+                                      className="image"
+                                      aspectRatio={aspectRatio}   
+                                      keyToImage={`${keySeed}-img-${it.id}-${ind}`}
+                                      layout={vertical ? "column" : "row"}  
+                                    />
+                                
+
                                   <div className="image-overlay" 
                                   key={`${keySeed}-overlay-${it.id}-${ind}`}
                                   onClick={() => setLightBoxIndex(it.lightBIdx)}></div>
@@ -217,8 +232,8 @@ export default function DynElement({item, linkWords, boldWords, setLightBoxIndex
 
                     <iframe
                       className = {`embeddedVideos ${
-  item.isSlide ? (animationDirection === "left" ? "slide-in-left" : "slide-in-right") : "fade-in"
-}`}
+                        item.isSlide ? (animationDirection === "left" ? "slide-in-left" : "slide-in-right") : "fade-in"
+                      }`}
                       key= {`${keySeed}-iframe`}
                       src={item.value.src}
                       title= {item.value.alt}       
