@@ -1,18 +1,16 @@
-// DynElement.jsx
-
 import React from "react";
 import SmartLink from "./SmartLink";
 import useWindowWidth from "./useWindowWidth";
 import { useState, useEffect } from "react";
-import Reveal from "./Reveal";
 import LazyImage from "./LazyImage";
 
 const basePath = "../images/";
 
-export default function DynElement({item, linkWords, boldWords, setLightBoxIndex, keySeed, animationDirection = "right"})   {
+export default function DynElement({item, linkWords, boldWords, setLightBoxIndex, keySeed, animationDirection = "right", index=1})   {
 
             const width = useWindowWidth();
             const vertical = !!item.vertical;
+            const isNotSlide = !item.isSlide;
             const bothPresent = item.value && item.header;
             const [aspectRatio, setAspectRatio] = useState(null);
             
@@ -69,11 +67,15 @@ export default function DynElement({item, linkWords, boldWords, setLightBoxIndex
               /// TEXT ELEMENT
             if(item.type === "text"){
                 return(
-                  
+
+                <div style={{display:"contents"}}>
+                  {isNotSlide && index!==0 && (<div className = {`textLine ${bothPresent ? "fullLine" : "midLine"}`} key={`${keySeed}-textLine`}></div>)}
+
                   <div className = {`textBody ${
                                       item.isSlide ? (animationDirection === "left" ? "slide-in-left" : "slide-in-right") : "fade-in"
                                     }`}
                   key={`${keySeed}-textBody`}>
+                  
                     <div key={`${keySeed}-row`} className = {`row ${bothPresent ? "two-col" : "one-col"}`}>
  
                       {item.header && (
@@ -99,6 +101,7 @@ export default function DynElement({item, linkWords, boldWords, setLightBoxIndex
                         key = {`${keySeed}-value`}
                         style={{
                           maxHeight: ((item.value.length <= 1) && (bothPresent) &&  (width<700)) ? ("0rem") : ("auto"),
+                          textAlign: ((item.value.split("\n").length === 1) || (!isNotSlide) || (!bothPresent)) ? "center" : "start", 
                         }}>
 
                           {item.value
@@ -121,9 +124,10 @@ export default function DynElement({item, linkWords, boldWords, setLightBoxIndex
                             return(
                               <React.Fragment key={`${keySeed}-value-line-${i}`}> 
                            
-                              {words.map((word, wI) =>{
+                              {words.map((word, wI) => {
                                 wIdx = wI;
                                 const trimmed = word.trim(); // NEW REGEX
+                                
                                 if(!trimmed) return word; /// SKIP WHITE SPACE NEW REGEX
                                 
                                 //////////////////////////////  CHECK LINK WORDS
@@ -162,7 +166,8 @@ export default function DynElement({item, linkWords, boldWords, setLightBoxIndex
                       )}
                     </div>
                   </div>
-                
+
+                </div>
                 )
           
                 };
@@ -192,14 +197,6 @@ export default function DynElement({item, linkWords, boldWords, setLightBoxIndex
                                 below450 ? below450 : "1 1" + Math.min(divisionNumber/item.value.length, 100) + "rem"   
                               }}>
                                 <div className="imageBlock-wrapper"> 
-                                  {/*<img 
-                                    key = {`${keySeed}-img-${it.id}-${ind}`}
-                                    className= "image" 
-                                    src= {it.src} 
-                                    alt={it.alt+"_image"} 
-                                    style={{aspectRatio: aspectRatio}}
-                                    onContextMenu={(e) => e.preventDefault()}
-                                  ></img>*/}
                                 
                                     <LazyImage
                                       key = {`${keySeed}-lazyImage-${it.id}-${ind}`}

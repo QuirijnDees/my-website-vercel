@@ -1,20 +1,20 @@
 import './About.css';
 import Reveal from "../components/Reveal";
+import React from "react";
 
-const biography = `Quirijn Dees is a sound designer, music producer and animator.
-He initially developed an interest in sound through producing beat music. At the age of 18, Quirijn started his Sonology Bachelor at the Royal Conservatory in The Hague. Here his interest in audiovisual composition and animation grew. During this time Quirijn started experimenting with creative coding and digital cut-out animation.
-After finishing his Sonology Bachelor, he did a Bachelor in Animation at KASK in Gent, Belgium. Here, he learned digital 3D-animation and created his first experimental and absurdist narrative films.
-In 2024-25 Quirijn did a Master’s in Animation at HSLU in Luzern, Switzerland, continuing his experiments into digital 3D-animation and creative coding.`;
-
+const biography = `Quirijn Dees is a \nfilmmaker,\ngeneralist in 3D-animation (Blender and Houdini),\nsound designer (Reaper and Ableton),\nelectronic music producer (Ableton and Supercollider),\ncreative coder (C++ with Openframeworks),\ncompositor (After Effects & Davinci Resolve),\nperson (brain)` 
+const cv = 'find my CV ';
 const ctma = "contact me at:";
 const email = "quirijnnn  [@]  gmail  .  com";
+const qIsA = "Quirijn Dees is a ";
 
-const texts = [biography, ctma, email];
+const texts = [biography, cv,  ctma, email];
 
 export default function About() {
 
   return (
     <div className="about-body">
+      
       <Reveal>
         <div className="imageBlock-wrapper-about">
           <img
@@ -26,20 +26,44 @@ export default function About() {
           <div className="image-overlay-about"></div>
         </div>
       </Reveal>
+
       <Reveal>
         <div className="about-text">
-          {texts.map((item, index) => (
-            <div key={index} className="about-text-section">
-              {index === 2 ? (
-            
-                <p className="about-email">{item}</p>
-              ) : (
-              
-                item.split("\n").map((line, i) => (
-                  <p key={i} className="about-paragraph">
+          <div className="about-biography-grid">
+            <div className="bio-left">
+              <p className="about-bio-left-text">
+                {qIsA}
+              </p>
+            </div>
+            <div className="bio-right">
+              {biography
+                .split("\n")
+                .slice(1)
+                .map((line, i) => (
+                  <p key={i} className="about-bio-right-text">
                     {line}
                   </p>
-                ))
+                ))}
+            </div>  
+          </div>
+
+      
+          {texts.slice(1).map((item, index) => (
+            <div key={index} className="about-text-section">
+              {index === 0 ? (
+                <p className="about-paragraph center-line">
+                  {item}
+                  <a
+                    className="aboutPage-CV-link"
+                    href="./documents/ShortCV_2025.pdf"
+                  >
+                    here.
+                  </a>
+                </p>
+              ) : index === 1 ? (
+                <p className="about-paragraph center-line">{item}</p>
+              ) : (
+                <p className="about-email">{item}</p>
               )}
             </div>
           ))}

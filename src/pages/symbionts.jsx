@@ -5,7 +5,7 @@ const linkWords = {"texturing tool":'/texturingtool', "Bonobo Studio": "https://
 const links = [{word: 'here.', to: '/texturingtool', lineNumber: 3}, null, null, null, null, null, null, {word: 'here.', to: 'https://wiki.animation-luzern.ch/2025_Symbionts', lineNumber:1}];
 const textParagraphs = ["Symbionts (2025) is an experimental, animated short film,\nit is my Master's graduation film at Lucerne School of Design, Film and Art.\n Its visual language is achieved by processing 3D-renders from Houdini with a custom-made texturing tool, created in Openframeworks.\nIf you want to know more about this tool specifically, there is a page dedicated to it ", 
                         "One form liquefies into a glistening puddle, another reproduces in a vibrant entanglement, while a third convulses under the invasive force of a parasitic entity. Symbionts traces an organic cycle of interaction within an unfamiliar ecosystem. It reveals the radiant elegance and the unrelenting violence inherent in the symbiotic relationships between diverse and peculiar life forms.\n\nThe film employs a distinctive visual language by merging digital 3D animation with a custom-developed texturing tool. This approach introduces a sense of abstraction while maintaining a tactile, almost recognizable reality, inviting viewers to immerse themselves in a world that is simultaneously alien and intimately biological.",
-                        "- Swiss Competition, Internationale Kurzfilmtage Winterthur, 2025",
+                        "- Swiss Competition, Internationale Kurzfilmtage Winterthur, 2025\n",
                         "Digital 3D & Creative coding",
                         "Houdini, Openframeworks, Nuke, Davinci Resolve",
                         "Bonobo Studio",

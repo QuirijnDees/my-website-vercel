@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import SmartLink from "./SmartLink";
 import './boxBody.css'
@@ -12,15 +13,19 @@ export default function BoxBody()   {
     const width = useWindowWidth();
     let nextId = 0;
     const imBasePath = `${import.meta.env.BASE_URL}images/`;
+    const filterCategories = ["All", "Animation", "Sound Design", "Tools"];
+    const [currentCategory, setCurrentCategory] = useState(0);
+    const categoryIndices = [[0, 1, 2, 3, 4], [0, 3], [0, 2, 3], [1, 4]];
+
     const works = ["Symbionts","TexturingTool", "RMX",  "PubertJimbob", "ImageSamplingTool"];
     const webPorGif = ["webp","gif","webp","webp","webp"];
     /////////////////////////// IF A WORK HAS NO IMAGE AS TITLE, FILL IT IN THE TITLES[] ARRAY AND IT WILL SHOW UP AS TEXT INSTEAD OF AN IMAGE
     const titles = [    null, "— texturingtool —", "— spectator —", null,"— imagesamplingtool —"];
     const fontColor = [ null,   "white", "#eae6e2",  null, "white"];
-    const fontTypes = [null, /*"Schibsted Grotesk*/ "Google Sans, sans-serif", "Inter, sans-serif", null, "Google Sans, sans-serif"];
+    const fontTypes = [null, 
+        "Google Sans, sans-serif", "Inter, sans-serif", null, "Google Sans, sans-serif"];
     const roleDescription = ["my master's graduation film from HSLU.\nmy roles were:\n• director •\n• collaborative sound designer •\n• all 3D-animation •", "my custom-made texturing tool,\nfor authentically retexturing 3D-renders", "an AR-project by Giulia Martinelli.\nmy role was:\n• sound designer •", "my bachelor's graduation film from KASK.\nmy roles were:\n• director •\n• sound designer •\n• all 3D-animation •", "my custom-made image sampling tool,\nfor sampling digital imagery into abstract compositions and unique 3D texture maps"];
     const links = ["/symbionts", "/texturingtool", "https://vimeo.com/997306290", "/pubertjimbob", "/imagesamplingtool"];
-    
     
     const randomLogoComment = ["excuse me... You're melting my logo", "uhmmm.. Watch out for the logo.", "please don't melt the logo..", "nooo not my logo!", "looks kinda cool but you're still melting my logo..."];
     const randomHomeComment = ["that's my work, but we are already there", "this is the homepage basically", "we are at 'work' already"];
@@ -31,7 +36,11 @@ export default function BoxBody()   {
     const randomInstaComment = ["exploreth my instagrammatory escapades.", "I would glimpse my profile, if I were you..", "one click is all it takes", "thou shalt find me on the 'gram'"];
     const randomVimeoComment = ["there is not much there.\nYet...", "I should perhaps upload something to vimeo.", "my current films are still in festival circulation, hence the current scarcity of content there.", "My future vimeo-channel shall be well-endowed with content,\nas of yet it is not however."];
     const randomYoutubeComment = ["maybe I should upload something to youtube.", "alas, there is not much of mine on youtube as of yet..", "my current films are still in festival circulation, hence the scarcity of content there.", "An abundance of content shall grace my youtube-channel,\nwhen the time is ripe."];
-    
+    const catAllComment = ["show my full portfolio", "view all my works"];
+    const catAnimComment = ["show only work that includes animation", "show my animated work"];
+    const catSDComment = ["only show work that I've done sound design on", "show my sound design work only"];
+    const catToolComment = ["show just my tools", "I made some custom tools, this way you filter out the rest, to only see those"];
+
     const fullTextArray = [
         roleDescription,
         randomLogoComment,
@@ -41,6 +50,10 @@ export default function BoxBody()   {
         randomInstaComment,
         randomVimeoComment,
         randomYoutubeComment,
+        catAllComment,
+        catAnimComment,
+        catSDComment,
+        catToolComment,
         randomClickComment,
         randomHoverClickComment
     ];
@@ -54,23 +67,23 @@ export default function BoxBody()   {
 
     const narrowComLine = React.useMemo(() => {
     const arr = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 14; i++) {
         if (i === 0) arr.push({ pos: "0", height: "0" });
-        else if (i > 7) arr.push({ pos: "12", height: "26" });
+        else if (i > 11) arr.push({ pos: "12", height: "26" });
         else arr.push({ pos: "18", height: "20" });
     }
     return arr;
     }, []);
 
     const hideComLine = React.useMemo(() => {
-    return Array.from({ length: 10 }, () => ({ pos: "0", height: "0" }));
+    return Array.from({ length: 14}, () => ({ pos: "0", height: "0" }));
     }, []);
 
     const defaultComLine = React.useMemo(() => {
     const arr = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 14; i++) {
         if (i === 0) arr.push({ pos: "0", height: "0" });
-        else if (i > 7) arr.push({ pos: "14", height: "23" });
+        else if (i > 11) arr.push({ pos: "14", height: "23" });
         else arr.push({ pos: "32", height: "6" });
     }
     return arr;
@@ -93,18 +106,21 @@ export default function BoxBody()   {
      });
 
      /////////////////////////// CREATE ASPECT RATIO FOR IMAGES
-        useEffect(() => {
+    useEffect(() => {
             const loadAspectRatios = async () => {
             const promises = workImPath.map(
-            (item) =>
+            (item, index) =>
                 new Promise((resolve) => {
                 const img = new Image();
-                img.src = item.imPath;
+
+                img.src = imBasePath + works[index] + "/GridStatic.webp";
+
                 img.onload = () => {
                     const ratio = img.naturalWidth / img.naturalHeight;
-                    resolve({ ...item, aspectRatio: ratio });
+                    resolve({ ...item, aspectRatio: ratio});
                 };
-                img.onerror = () => resolve({ ...item, aspectRatio: 1 }); // fallback square
+                img.onerror = () => resolve({ ...item, aspectRatio: 1 });
+
                 })
             );
 
@@ -112,34 +128,43 @@ export default function BoxBody()   {
         set_workImPath(withRatios);
     };
 
+
     loadAspectRatios();
     }, []);
 
+    //////////////////////////// HOVER OVER CATEGORIES
 
-
+    const categoryHover = (over, index) => {
+    
+        if(over){
+            setCursorPos(index+8);
+        }else{
+            setCursorPos(0);
+        }
+    }
 
     //////////////////////////// CHANGE IMAGE TO GIF ON HOVER
 
     const changeToGif = (index, toGif) => {
 
-    if(toGif){
-        set_currentBoxIndex(index);
-    }else{
-        set_currentBoxIndex(null);
-    };
+        if(toGif){
+            set_currentBoxIndex(index);
+        }else{
+            set_currentBoxIndex(null);
+        };
 
-    const newPath = (toGif) ? imBasePath + works[index] + "/GridGif." + webPorGif[index] : imBasePath + works[index] +  "/GridStatic.webp";
+        const newPath = (toGif) ? imBasePath + works[index] +  "/GridGif." + webPorGif[index]  : imBasePath + works[index] +  "/GridStatic.webp";
 
-    const nextWorkImPath = workImPath.map((item, i) => 
-        index === item.id ? {...item, imPath: newPath} : {...item, imPath:  imBasePath + works[item.id] +  "/GridStatic.webp"});
+        const nextWorkImPath = workImPath.map((item, i) => 
+            index === item.id ? {...item, imPath: newPath} : {...item, imPath:  imBasePath + works[item.id] +  "/GridStatic.webp"});
 
-    set_workImPath(nextWorkImPath);
+        set_workImPath(nextWorkImPath);
 
     }
 
 //////////////////////////////// COMMENTER LINE
 
-const descripText = (cursorPos === 0) ? (roleDescription[currentBoxIndex]) : (fullTextArray[cursorPos][Math.floor(Math.random()*fullTextArray[cursorPos].length)]);
+const descripText = (cursorPos === 0) ? (roleDescription[currentBoxIndex]) : (fullTextArray[cursorPos][Math.floor(Math.random() * fullTextArray[cursorPos].length)]);
 const [commenterLine, setCommenterLine] = useState(defaultComLine);
 
 useEffect(() => {
@@ -166,16 +191,15 @@ useEffect(() => {
     return () => clearTimeout(timerRef.current);
 }, []);
 
-
 const commenterBoxTimer = (click) => {
     if(timerRef.current){
         clearTimeout(timerRef.current);
     };
 
     if(click === true){
-        setCursorPos(8);
+        setCursorPos(12);
     }else{
-        setCursorPos(9);
+        setCursorPos(13);
     };
 
 
@@ -183,7 +207,7 @@ const commenterBoxTimer = (click) => {
         timerRef.current = null;
   
         setCursorPos(0);
-    }, 1000);
+    }, 1500);
 
 }
 
@@ -196,36 +220,39 @@ const cancelTimer = () => {
     }
 }
 
-
-
-
     return(
         <div>
+            <div className="boxBody-Category-Div">
+                {filterCategories.map((item, index) => (
+                    <h1 className="boxBody-Categories" key={`boxBody-Cat-div-${index}`} onMouseOver={() => categoryHover(true, index)} onMouseOut={() => categoryHover(false, index)} onClick = {() => setCurrentCategory(index)} style={{fontWeight:(currentCategory===index) ? "800" : "300"}}>{item}</h1>
+                ))}
+            </div> 
 
-        <div className= "boxBody">
-
-            {workImPath.map((item, index) => (
-                <div key={String(item.id)} className="box" onMouseOver={() => changeToGif(item.id, true)} onMouseLeave={() => changeToGif(item.id, false)} width={400}>
-                    <Reveal>
-                        <SmartLink to={item.link}>
-                            <div className="imageBlock-wrapper" style={{ aspectRatio: item.aspectRatio ?? 1 }}>     
-                                <img className= "image" src= {item.imPath} alt={works[item.id]+"_image"} onContextMenu={(e) => e.preventDefault()}></img>
-                                {item.title === null ? (
-                                    <img className= "titleAsLogo" src= {item.imText} alt={works[item.id]+"_text"} onContextMenu={(e) => e.preventDefault()}></img>
-                                ) : (
-                                    <h1 className="titleAsText" alt={works[item.id]+"_text"} style={{color: item.fontColor, fontFamily: item.fontType}}> {item.title} </h1>
-                                )
-                                }
-                                <div className="image-overlay"></div>
-                            </div>
-                        </SmartLink>
-                    </Reveal>
-                </div>
-            ))}
-
-        </div>
-
-        <div className = "commenterContainer">
+            <div className= "boxBody">
+                    {workImPath.map((item, index) => (
+                        categoryIndices[currentCategory].includes(index) &&
+                            (<div key={"boxBody-box-" + String(item.id)} className="box" onMouseOver={() => changeToGif(item.id, true)} onMouseLeave={() => changeToGif(item.id, false)} style={{aspectRatio: item.aspectRatio ?? 1 , width: "100%"}}>
+                                    <Reveal key={`boxBody-Reveal-${index}`}>
+                                        <SmartLink to={item.link}  key={`boxBody-SmartLink-${index}`}>
+                                            <div className="imageBlock-wrapper" key={`boxBody-ImageBlock-wrapper-${index}`} style={{aspectRatio: item.aspectRatio ?? 1, width: "100%", height: "auto"}}>
+                                                <img className= "imageGif" key={`boxBody-ImageGif-${index}`}  src= {imBasePath + works[index] +  "/GridGif." + webPorGif[index]} alt={works[item.id]+"_image"} onContextMenu={(e) => e.preventDefault()} style={{aspectRatio: item.aspectRatio ?? 1, width: "100%", visibility: (currentBoxIndex===index) ? "visible" : "hidden"}}></img>
+                                                <img className= "image" key={`boxBody-Image-${index}`} src= {imBasePath + works[index] +  "/GridStatic.webp"} alt={works[item.id]+"_image"} onContextMenu={(e) => e.preventDefault()} style={{aspectRatio: item.aspectRatio ?? 1, width: "100%",  visibility: (currentBoxIndex!==index) ? "visible" : "hidden"}}></img>
+                                                {item.title === null ? (
+                                                    <img className= "titleAsLogo" key={`boxBody-titleAsLogo-${index}`} src= {item.imText} alt={works[item.id]+"_text"} onContextMenu={(e) => e.preventDefault()}></img>
+                                                ) : (
+                                                    <h1 className="titleAsText" key={`boxBody-titleAsText-${index}`}  alt={works[item.id]+"_text"} style={{color: item.fontColor, fontFamily: item.fontType}}> {item.title} </h1>
+                                                    )
+                                                }
+                                                <div className="image-overlay"  key={`boxBody-imageOverlay-${index}`}></div>
+                                            </div>
+                                        </SmartLink>
+                                     </Reveal>
+                                </div>
+                            )
+                    ))}
+            </div>
+        {width > 450 && 
+        (<div className = "commenterContainer">
 
             <div className="commenterBox" onMouseOver = {() => commenterBoxTimer(false)} onMouseLeave={() => cancelTimer()}>
                 <img className = "commenter" src= {`${import.meta.env.BASE_URL}images/Static_Q3DScan.webp`} onClick = {() => commenterBoxTimer(true)}></img>
@@ -265,9 +292,10 @@ const cancelTimer = () => {
                         )
                     }
                 </p>
-                </div>
-        
             </div>
+        
+        </div>
+        )}
         </div>
 
     );

@@ -11,6 +11,7 @@
 }
 
 
+
 @media (max-width: 1450px) {
   .about-body{
     margin-top: 6rem;
@@ -18,18 +19,17 @@
 }
 
 
-.about-text{
-    animation: fadeInText 0.5s ease-out forwards;
-    margin: 1rem 0;
-    gap: 1rem;
-    white-space: pre-wrap;
-    font-size: 120%;
-    color: white;
-    line-height: clamp(1.2rem, 3vw, 1.6rem);;
-    font-family: "Work Sans" , sans-serif; 
-    color:white;
-    font-size: clamp(0.8rem, 3vw, 1rem);
-    width: 60%;
+.about-text {
+  animation: fadeInText 0.5s ease-out forwards;
+  margin: 1rem auto;
+  gap: 1rem;
+  white-space: pre-wrap;
+   font-family: "Franklin Libre", sans-serif;
+  color: white;
+  line-height: clamp(1.2rem, 3vw, 1.6rem);
+  font-size: clamp(0.8rem, 2vw, 16px);
+  width: 100%;
+  max-width: 1200px;
 }
 
 @media (max-width: 900px) {
@@ -39,13 +39,23 @@
 
 }
 
-
-
 .about-paragraph{
+    margin: 0;
+}
+
+.aboutPage-CV-link{
     margin: 0 auto;
+    color: #719eff;
+    text-decoration: underline;
+}
+
+.aboutPage-CV-link:hover {
+    color: #225edd;
+    text-decoration: none;
 }
 
 .about-email{
+    text-align: center;
     font-size: clamp( 0.8rem, 5vw, 1.3rem);
 }
 
@@ -122,4 +132,56 @@
 .about-linkLogos a:hover {
   color: #58a6ff;
   transform: scale(1.05);
+}
+
+.about-biography-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  column-gap: 0rem  ;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+
+.bio-left,
+.bio-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.about-bio-left-text {
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.about-bio-right-text {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  line-height: clamp(1.2rem, 3vw, 1.7rem);
+  
+}
+
+
+@media (max-width: 800px) {
+  .about-biography-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-bio-left-text,
+  .about-bio-right-text {
+    text-align: center;
+  }
+
+  .bio-left {
+    margin-bottom: 0;
+  }
 }

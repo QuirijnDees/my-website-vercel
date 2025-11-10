@@ -20,8 +20,15 @@ export default function Footer() {
 
   useEffect(() => {
     if(boxBodyPage){
+
+      if(width > 450){
         setFooterWidth("75%");
         setPadding("0rem 1rem");
+      }else{
+        setFooterWidth("100%");
+        setPadding("0rem 1rem");
+      }
+        
     }else{
       if(width < 500){
         setFooterWidth("100%");

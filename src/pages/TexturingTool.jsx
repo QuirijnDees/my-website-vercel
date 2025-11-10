@@ -13,26 +13,22 @@ const vidsList = [
     {alt: "wipe6", src:"/images/TexturingTool/SymbiontsWipe5.mp4", link: false, width: "95%"},
     {alt: "wipe7", src:"/images/TexturingTool/SymbiontsWipe6.mp4", link: false, width: "95%"}
 ];
-const orderList = ["text", "text",
-    "slideshow", "text", "image", "text", "image", "text", "image", "text", "image", "text", "image", "text", "image",
+const orderList = ["text",
     "text",
     "slideshow", "video", "video", "video", "video", "video", "video", "video", 
     "text",
         "slideshow", "text", "image",  "text", "image",  "text", "image",  "text", "image",  "text", "image",  "text", "image",  "text", "image",  "text", "image",  "text", "image",  "text", "image",  "text", "image", "text", "image"
 ];
-const slideShowSizes = [[12, 2, false], [7, 1, false], [24, 2, false]]; //////////// amount of elements that fold into the slideshow, amount of elements per slide, boolean for vertical (true) or horizontal (false) arrangement of imageBodies. 
+const slideShowSizes = [[7, 1, false], [24, 2, false]]; //////////// amount of elements that fold into the slideshow, amount of elements per slide, boolean for vertical (true) or horizontal (false) arrangement of imageBodies. 
 const subImageList = [
-    1, 1, 1, 1, 1, 1,
     2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2
 ];
-const gifIndices = [[7, 2]]; //////////////// IF AN IMAGE IS A GIF, FILL IN THE IMAGE_(INDEX1)_(INDEX2) PER GIF.
-const headers = [null, "still examples", null, null, null, null, null, null,  "examples with 3D-input", "explanation"];
+const gifIndices = [[1, 2]]; //////////////// IF AN IMAGE IS A GIF, FILL IN THE IMAGE_(INDEX1)_(INDEX2) PER GIF.
+const headers = [null, "examples with 3D-input", "explanation"];
 const textParagraphs = [
-    "\nThe texturing tool is used to retexture and abstract 3D-renders.\nIt was programmed using the C++ creative coding toolkit: Openframeworks.\nThe tool was used to build the visual language for my Master's graduation film 'Symbionts' (2025).",
-        " ",
-        "These are a variety of textures applied to the same 3D model using the texturing tool.\nThe 3D-input comes from my film 'Symbionts'.", "These are a variety of textures applied to the same 3D model using the texturing tool.\nThe 3D-input comes from my film 'Symbionts'.", "These are a variety of textures applied to the same 3D model using the texturing tool.\nThe 3D-input comes from my film 'Symbionts'.", "These are a variety of textures applied to the same 3D model using the texturing tool.\nThe 3D-input comes from my film 'Symbionts'.", "These are a variety of textures applied to the same 3D model using the texturing tool.\nThe 3D-input comes from my film 'Symbionts'.", "These are a variety of textures applied to the same 3D model using the texturing tool.\nThe 3D-input comes from my film 'Symbionts'.",
-        "Here are more examples from 'Symbionts' that present both the 3D-input (the clay render) from Houdini, as well as the results from the texturing tool.\nThe textured results were subtly composited using Nuke.", 
-    "\nThe following slideshow provides a step-by-step explanation\nof how the texturing tool uses a variety of render passes from a rendered 3D-input,\nas well as a PNG-sequence to create its textures.",
+    "The texturing tool is used to retexture and abstract 3D-renders.\nIt was programmed using the C++ creative coding toolkit: Openframeworks.\nThe tool was used to build the visual language for my Master's graduation film 'Symbionts' (2025).",
+        "Here are more examples from 'Symbionts' that present both the 3D-input (the clay render) from Houdini, as well as the results from the texturing tool. The textured results were subtly composited using Nuke.", 
+    "The following slideshow provides a step-by-step explanation of how the texturing tool uses a variety of render passes from a rendered 3D-input, as well as a PNG-sequence to create its textures.",
         "This example makes use of the 3D-render on the left, the PNG-sequence on the right accounts for the basis of the texture.",
         "The cryptomatte of the 3D-input is used to create an outline that will be filled with repetitions of the PNG-sequence or the so-called 'segment-input'.",
         "The outline is filled with repeated frames, or ‘segments’, from the PNG-sequence. The brightness value from a specific render-pass, the ‘frame-map’ (on the left), determines what frame from the PNG-sequence is used for each segment.\nDarker values result in lower frame-numbers, whereas the brighter values will be assigned frame-numbers towards the end of the PNG-sequence.",

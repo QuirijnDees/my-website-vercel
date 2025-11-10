@@ -1,4 +1,3 @@
-// PageTemplate.jsx
 import { useState } from 'react';
 import "./PageTemplate.css";
 import Lightbox from "./lightBox";
@@ -198,42 +197,12 @@ if(titleImSize !== null){
                   boldWords={boldWords}
                   setLightBoxIndex={setLightBoxIndex}
                   keySeed={keySeed}
+                  index = {index}
                 />
               </Reveal>
             )
           
         );
-
-        /*
-        if (item.type === "slideshow") {
-            return (
-              <SlideshowWrapper
-                key={`${keySeed}-slideshow-${item.slideNumber}`}
-                item={item}
-                slideShowLengths={slideShowLengths}
-                slideShowIndices={slideShowIndices}
-                slideDirections={slideDirections}
-                updateSlideshowIndices={updateSlideshowIndices}
-                linkWords={linkWords}
-                boldWords={boldWords}
-                setLightBoxIndex={setLightBoxIndex}
-                keySeed={keySeed}
-              />
-            );
-        }
-
-        // Non-slideshow items
-        return (
-          <DynElement
-            key={keySeed}
-            item={item}
-            linkWords={linkWords}
-            boldWords={boldWords}
-            setLightBoxIndex={setLightBoxIndex}
-            keySeed={keySeed}
-
-          />
-        );*/
       })
       
       }
