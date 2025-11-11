@@ -2,7 +2,7 @@ import './About.css';
 import Reveal from "../components/Reveal";
 import React from "react";
 
-const biography = `Quirijn Dees is a \nfilmmaker,\ngeneralist in 3D-animation (Blender and Houdini),\nsound designer (Reaper and Ableton),\nelectronic music producer (Ableton and Supercollider),\ncreative coder (C++ with Openframeworks),\ncompositor (After Effects & Davinci Resolve),\nperson (brain)` 
+const biography = `Quirijn Dees is a \nfilmmaker,\ngeneralist in 3D-animation (Blender and Houdini),\nsound designer (Reaper and Ableton),\nelectronic music producer (Ableton and Supercollider),\ncreative coder (C++ with Openframeworks),\ncompositor (After Effects & Davinci Resolve),\nperson (mind)` 
 const cv = 'find my CV ';
 const ctma = "contact me at:";
 const email = "quirijnnn  [@]  gmail  .  com";

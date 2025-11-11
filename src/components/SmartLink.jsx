@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function SmartLink({ to, children, ...props }) {
-  // Check if the link is external (starts with http://, https://, or //)
+
   const isExternal = /^(https?:)?\/\//.test(to);
 
   if (isExternal) {

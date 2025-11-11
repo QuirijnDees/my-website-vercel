@@ -101,7 +101,7 @@ export default function DynElement({item, linkWords, boldWords, setLightBoxIndex
                         key = {`${keySeed}-value`}
                         style={{
                           maxHeight: ((item.value.length <= 1) && (bothPresent) &&  (width<700)) ? ("0rem") : ("auto"),
-                          textAlign: ((item.value.split("\n").length === 1) || (!isNotSlide) || (!bothPresent)) ? "center" : "start", 
+                          textAlign: ((!isNotSlide) || (!bothPresent)) ? "center" : "start", 
                         }}>
 
                           {item.value
