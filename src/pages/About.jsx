@@ -90,12 +90,12 @@ export default function About() {
           <ion-icon name="logo-vimeo"></ion-icon>
         </a>
         <a
-          href="https://www.youtube.com/@quirtje1"
-          aria-label="YouTube"
+          href="https://linkedin.com/in/quirijn-dees-51011b19a"
+          aria-label="LinkedIn"
           target="_blank"
           rel="noreferrer noopener"
         >
-          <ion-icon name="logo-youtube"></ion-icon>
+          <ion-icon name="logo-linkedin"></ion-icon>
         </a>
       </div>
       </Reveal>
