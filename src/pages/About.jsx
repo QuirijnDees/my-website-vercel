@@ -56,6 +56,7 @@ export default function About() {
                   <a
                     className="aboutPage-CV-link"
                     href="./documents/ShortCV_2025.pdf"
+                    target="_blank"
                   >
                     here.
                   </a>

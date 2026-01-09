@@ -64,7 +64,7 @@ export default function Footer() {
     };    
   }
 
-  const onYoutube = (over) => {
+  const onLinkedIn = (over) => {
     if(over === true){
       setCursorPos(7);
     }else{
@@ -83,7 +83,7 @@ export default function Footer() {
             <p className = "footerEmail"  onMouseOver={() => onEmail(true)} onMouseOut={() => onEmail(false)}>quirijnnn   [@]  gmail  .  com</p>
             <a href="https://www.instagram.com/quirijndees/" aria-label="Instagram" target="_blank" rel="noreferrer noopener" onMouseOver={() => onInsta(true)} onMouseOut={() => onInsta(false)}><ion-icon name="logo-instagram"></ion-icon></a>
             <a href="https://vimeo.com/user103304092" aria-label="Vimeo"  target="_blank" rel="noreferrer noopener" onMouseOver={() => onVimeo(true)} onMouseOut={() => onVimeo(false)}><ion-icon name="logo-vimeo"></ion-icon></a>
-            <a href="https://www.youtube.com/@quirtje1" aria-label="Youtube" target="_blank" rel="noreferrer noopener" onMouseOver={() => onYoutube(true)} onMouseOut={() => onYoutube(false)}> <ion-icon name="logo-youtube"></ion-icon></a>
+            <a href="https://linkedin.com/in/quirijn-dees-51011b19a" aria-label="LinkedIn" target="_blank" rel="noreferrer noopener" onMouseOver={() => onLinkedIn(true)} onMouseOut={() => onLinkedIn(false)}> <ion-icon name="logo-linkedin"></ion-icon></a>
         </div>
         <div className="footerLine"></div>
       </div>
