@@ -137,6 +137,8 @@
   }
 
   .video-container{
+    max-width: 60rem;
+    max-height: 40rem;
     width: 100%;
     aspect-ratio: 16/9;
     margin-bottom: 1rem;

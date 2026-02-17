@@ -244,11 +244,13 @@ export default function DynElement({item, linkWords, boldWords, setLightBoxIndex
 
                     <div className={`video-container ${
                                       item.isSlide ? (animationDirection === "left" ? "slide-in-left" : "slide-in-right") : "fade-in"
-                                    }`}>
+                                    }`
+                                    }
+                          style={{width: item.isSlide ? "100%" : (item.value.width)}}>
                       <video
                         className="video-player"
                         key = {`${keySeed}-video`}
-                        width={item.value.width}
+                        width= {item.isSlide ? (item.value.width) : "100%"}
                         controls={true}
                         autoPlay={false}
                         preload="none"

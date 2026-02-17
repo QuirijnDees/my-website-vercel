@@ -14,17 +14,17 @@ export default function BoxBody()   {
     const imBasePath = `${import.meta.env.BASE_URL}images/`;
     const filterCategories = ["All", "Animation", "Sound Design", "Tools"];
     const [currentCategory, setCurrentCategory] = useState(0);
-    const categoryIndices = [[0, 1, 2, 3, 4], [0, 3], [0, 2, 3], [1, 4]];
+    const categoryIndices = [[0, 1, 2, 3, 4, 5], [0, 3, 5], [0, 2, 3, 5], [1, 4]];
 
-    const works = ["Symbionts","TexturingTool", "RMX",  "PubertJimbob", "ImageSamplingTool"];
-    const webPorGif = ["webp","gif","webp","webp","webp"];
+    const works = ["Symbionts","TexturingTool", "RMX",  "PubertJimbob", "ImageSamplingTool", "Sketches"];
+    const webPorGif = ["webp","gif","webp","webp","webp","webp"];
     /////////////////////////// IF A WORK HAS NO IMAGE AS TITLE, FILL IT IN THE TITLES[] ARRAY AND IT WILL SHOW UP AS TEXT INSTEAD OF AN IMAGE
-    const titles = [    null, "— texturingtool —", "— spectator —", null,"— imagesamplingtool —"];
-    const fontColor = [ null,   "white", "#eae6e2",  null, "white"];
+    const titles = [    null, "— texturingtool —", "— spectator —", null,"— imagesamplingtool —", "— sketches —"];
+    const fontColor = [ null,   "white", "#eae6e2",  null, "white", "white"];
     const fontTypes = [null, 
-        "Google Sans, sans-serif", "Inter, sans-serif", null, "Google Sans, sans-serif"];
-    const roleDescription = ["my master's graduation film from HSLU.\nmy roles were:\n• director •\n• collaborative sound designer •\n• all 3D-animation •", "my custom-made texturing tool,\nfor authentically retexturing 3D-renders", "an AR-project by Giulia Martinelli.\nmy role was:\n• sound designer •", "my bachelor's graduation film from KASK.\nmy roles were:\n• director •\n• sound designer •\n• all 3D-animation •", "my custom-made image sampling tool,\nfor sampling digital imagery into abstract compositions and unique 3D texture maps"];
-    const links = ["/symbionts", "/texturingtool", "https://vimeo.com/997306290", "/pubertjimbob", "/imagesamplingtool"];
+        "Google Sans, sans-serif", "Inter, sans-serif", null, "Google Sans, sans-serif", "Google Sans, sans-serif"];
+    const roleDescription = ["my master's graduation film from HSLU.\nmy roles were:\n• director •\n• collaborative sound designer •\n• all 3D-animation •", "my custom-made texturing tool,\nfor authentically retexturing 3D-renders", "an AR-project by Giulia Martinelli.\nmy role was:\n• sound designer •", "my bachelor's graduation film from KASK.\nmy roles were:\n• director •\n• sound designer •\n• all 3D-animation •", "my custom-made image sampling tool,\nfor sampling digital imagery into abstract compositions and unique 3D texture maps", "a collection of experiments and sketches"];
+    const links = ["/symbionts", "/texturingtool", "https://vimeo.com/997306290", "/pubertjimbob", "/imagesamplingtool", "/sketches"];
     
     const randomLogoComment = ["excuse me... You're melting my logo", "uhmmm.. Watch out for the logo.", "please don't melt the logo..", "nooo not my logo!", "looks kinda cool but you're still melting my logo..."];
     const randomHomeComment = ["that's my work, but we are already there", "this is the homepage basically", "we are at 'work' already"];
@@ -34,7 +34,7 @@ export default function BoxBody()   {
     const randomEmailComment = ["you are only one email away from contacting me.", "little hint:\nyou remove the spaces and brackets...\nyou have my electronic mailing address", "Thy message shall be received in utter mirth", "Do not be of an uncertain nature whenas thou seeketh to contact me."];
     const randomInstaComment = ["exploreth my instagrammatory escapades.", "I would glimpse my profile, if I were you..", "one click is all it takes", "thou shalt find me on the 'gram'"];
     const randomVimeoComment = ["there is not much there.\nYet...", "I should perhaps upload something to vimeo.", "my current films are still in festival circulation, hence the current scarcity of content there.", "My future vimeo-channel shall be well-endowed with content,\nas of yet it is not however.", "An abundance of content shall grace my vimeo-channel,\nwhen the time is ripe."];
-    const randomLinkedInComment = ["ah linkedin... the platform of corporate interrelations.", "go and wade through the corporate hotbed that is linked-in", "ballpoint in the breast pocket\nclipboard under the arm\nkeycord around the neck\nit is linked-in time!"];
+    const randomLinkedInComment = ["ah linkedin... the platform of corporate interrelations.", "let's dabble in the corporate hotbed that is linked-in!", "ballpoint in the breast pocket\nclipboard under the arm\nkeycord around the neck\nit is linked-in time!"];
     const catAllComment = ["show my full portfolio", "view all my works"];
     const catAnimComment = ["show only work that includes animation", "show my animated work"];
     const catSDComment = ["only show work that I've done sound design on", "show my sound design work only"];

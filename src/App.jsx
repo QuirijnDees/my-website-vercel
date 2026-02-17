@@ -7,6 +7,7 @@ import Symbionts from './pages/symbionts';
 import PubertJimbob from './pages/PubertJimbob';
 import ImageSamplingTool from './pages/ImageSamplingTool';
 import TexturingTool from './pages/TexturingTool';
+import Sketches from './pages/sketches';
 import ScrollToTop from './components/scrollToTop'; 
 import { GlobalProvider } from "./GlobalContext";
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/pubertjimbob" element={<PubertJimbob />} />
           <Route path="/imagesamplingtool" element={<ImageSamplingTool />} />
           <Route path="/texturingtool" element={<TexturingTool />}/>
+          <Route path="/sketches" element={<Sketches />}/>
         </Routes>
       </main>
       <Footer/>
