@@ -18,7 +18,7 @@ const slideShowSizes = []; //////////// amount of elements that fold into the sl
 const subImageList = [
 ];
 const gifIndices = []; //////////////// IF AN IMAGE IS A GIF, FILL IN THE IMAGE_(INDEX1)_(INDEX2) PER GIF.
-const headers = [null, "Alien Documentary Sketch", "The Hairer Dancer"
+const headers = [null, "Alien Documentary Sketch", "The Hairier Dancer"
 ];
 const textParagraphs = [
     "This page displays a collection of visual sketches and experiments.\nThey are not part of my larger projects, or were scrapped in the process.",
