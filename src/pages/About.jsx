@@ -55,7 +55,7 @@ export default function About() {
                   {item}
                   <a
                     className="aboutPage-CV-link"
-                    href="./documents/ShortCV_2025.pdf"
+                    href="./documents/ShortCV_2026.pdf"
                     target="_blank"
                   >
                     here.
