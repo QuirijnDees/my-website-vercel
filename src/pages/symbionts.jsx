@@ -1,20 +1,21 @@
 import React from 'react';
 import PageTemplate from "../components/PageTemplate";
 
-const linkWords = {"texturing tool":'/texturingtool', "Bonobo Studio": "https://bonobostudio.hr/en/distribution/symbionts", "'Shorts II, 2025'-publication by Swiss Films" : "https://www.swissfilms.ch/en/movie/symbionts/7dfba7691a7a4251a66946f4430c3f8f"};
-const links = [{word: 'here.', to: '/texturingtool', lineNumber: 3}, null, null, null, null, null, null, {word: 'here.', to: 'https://wiki.animation-luzern.ch/2025_Symbionts', lineNumber:1}];
+const linkWords = {"texturing tool":'/texturingtool', "texturing technique":'/texturingtool', "Bonobo Studio": "https://bonobostudio.hr/en/distribution/symbionts", "'Shorts II, 2025'-publication by Swiss Films" : "https://www.swissfilms.ch/en/movie/symbionts/7dfba7691a7a4251a66946f4430c3f8f"};
+const links = [{word: 'here.', to: '/texturingtool', lineNumber: 3}, null, null, null, null, null, null, null, {word: 'here.', to: 'https://wiki.animation-luzern.ch/2025_Symbionts', lineNumber:1}];
 const textParagraphs = ["Symbionts (2025) is an experimental, animated short film,\nit is my Master's graduation film at Lucerne School of Design, Film and Art.\n Its visual language is achieved by processing 3D-renders from Houdini with a custom-made texturing tool, created in Openframeworks.\nIf you want to know more about this tool specifically, there is a page dedicated to it ", 
                         "One form liquefies into a glistening puddle, another reproduces in a vibrant entanglement, while a third convulses under the invasive force of a parasitic entity. Symbionts traces an organic cycle of interaction within an unfamiliar ecosystem. It reveals the radiant elegance and the unrelenting violence inherent in the symbiotic relationships between diverse and peculiar life forms.\n\nThe film employs a distinctive visual language by merging digital 3D animation with a custom-developed texturing tool. This approach introduces a sense of abstraction while maintaining a tactile, almost recognizable reality, inviting viewers to immerse themselves in a world that is simultaneously alien and intimately biological.",
-                        "- Swiss Competition, Internationale Kurzfilmtage Winterthur, 2025\n- Panorama Short Films, Solothurn Film Festival, 2026\n- Short Film Programme of the 'Mehr Licht – Video in der Kunst'-Exhibition, Kunstmuseum Solothurn, 2026\n- Animation Competition, Landshut Short Film Festival, 2026\n- Abstract and Non-Narrative Animation Competition, Anifilm, 2026\n- International Competition, MIAF, 2026\n- Off-Limits, Annecy, 2026",
+                        "- Swiss Competition, Internationale Kurzfilmtage Winterthur, 2025\n- Panorama Short Films, Solothurn Film Festival, 2026\n- Short Film Programme of the 'Mehr Licht – Video in der Kunst'-Exhibition, Kunstmuseum Solothurn, 2026\n- Animation Competition, Landshut Short Film Festival, 2026\n- Abstract and Non-Narrative Animation Competition, Anifilm, 2026\n- International Short Film Competition, FICAM, 2026\n- International Competition, MIAF, 2026\n- Off-Limits, Annecy, 2026\n- International Competition of Shorts, Fest Anča, 2026\n- Panorama Suizo, Suiza Pop, 2026\n- Animation Competition, Odense International Film Festival, 2026\n- International Competition, Turku Animated Film Festival, 2026\n- Swiss Competition, Fantoche, 2026",
                         "Digital 3D & Creative coding",
                         "Houdini, Openframeworks, Nuke, Davinci Resolve",
                         "Bonobo Studio",
                         "-	Directed by: Quirijn Dees\n \n-	Animation: Quirijn Dees\n \n-	Editing: Quirijn Dees\n \n-	Compositing: Frederic Berger\n \n-	Title and Credit Design: Alexandra Siebert\n \n-	Music: Miro Bollen\n \n-	Foleys: Céline Bernard\n \n-	Sound Design: Miro Bollen, Quirijn Dees\n \n-	Sound mix: Jeroen Visser\n \n-	Project Mentors: Tim Markgraf, Simon Ott, Fabian Schäublin, Jeroen Visser, Marvin Sprengel, Irina Rubina\n \n-	Production Support: Jean First, Thomas Gassman\n \n-	Thesis Mentor: Elke Rentemeister\n \n-	Artistic Assistance: Elena Rast, Katharina Knust\n \n-	Social Media: Eugénie Bouquet\n \n-	Executive Producer: Gerd Gockell\n \n-	Promotion: Chantal Molleur\n \n-	Produktion/Production/Production: Lucerne School of Design, Film and Art / MA Animation, Tina Ohnmacht\n \n-	Special thanks: My classmates, Sofie Hoeben",
+                        "Explanation video about the texturing technique that was developed for Symbionts:",
                         "Symbionts is featured in the 'Shorts II, 2025'-publication by Swiss Films.\nMore information on Symbionts can be found "
                     ];
 
-const headers = [null, "synopsis", "selections", "technique", "softwares", "distribution", "credits", ""];
-const orderList = ["text", "video", "text", "text", "image", "text", "text", "text", "image", "text","image", "text"]
+const headers = [null, "synopsis", "selections", "technique", "softwares", "distribution", "credits", null, ,""];
+const orderList = ["text", "video", "text", "text", "image", "text", "text", "text", "image", "text", "text", "video", "text", "image"]
 
 export default function Symbionts() {
 
@@ -22,7 +23,8 @@ export default function Symbionts() {
     const subImageList = [1, 1, 3];
     const gifIndices = [];
     const vidsList = [ 
-        {alt: "excerpt", src:"https://player.vimeo.com/video/1113872012?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479", link:true, width: "100%"}
+        {alt: "excerpt", src:"https://player.vimeo.com/video/1113872012?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479", link:true, width: "100%"},
+        {alt: "explanation", src:"https://www.youtube.com/embed/mJgBSFizIYM?si=gofcEqx08CBSeoMc", link:true, width: "100%"}
     ];
     const boldWords = [];
 
